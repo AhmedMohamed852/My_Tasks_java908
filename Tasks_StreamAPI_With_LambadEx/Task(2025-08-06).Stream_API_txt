@@ -1,0 +1,182 @@
+🔹 Basic Stream Operations:-
+
+Task 1 : ==> Filter even numbers from a list of integers.
+
+  List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+  System.out.println(numbers = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList()));
+
+Task 2 : ==> Find names starting with a specific letter from a list of strings.
+
+  List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+  System.out.println(names.stream().filter(n -> n != null && n.startsWith("S") && n.length() > 1   ).collect(Collectors.toList()));
+
+Task 3 : ==> Convert all strings to uppercase using stream
+
+    List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+        names.stream().forEach(s ->{
+            if(s != null && !s.isEmpty())
+            {
+                System.out.println(s);
+            }
+        });
+  });
+
+
+Task 4 : ==> Sort a list of integers in descending order using streams.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()));
+
+Task 5 : ==> Remove duplicate elements from a list using distinct().
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().distinct().collect(Collectors.toList()));
+
+=======================================================================================================================
+
+🔹 Intermediate Stream Tasks:-
+
+Task 1 : ==> Find the first element in a stream that matches a given condition.
+
+   List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+   System.out.println(names.stream().filter(s -> s != null && s.length() > 5).count());
+
+Task 2 : ==> Find the first element in a stream that matches a given condition.
+
+   List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+   System.out.println(names.stream().filter(s -> s != null && s.startsWith("A")).findFirst().stream().collect(Collectors.toList()));
+
+Task 3 : ==> Check if any number is divisible by 5 in a list.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().anyMatch(n -> n !=0 && n % 5 == 0));
+   System.out.println(numbers.stream().filter(n -> n % 5 == 0 && n > 0).collect(Collectors.toList()));
+
+Task 4 : ==> Collect elements into a Set instead of a List
+
+ List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   Set<Integer> numbersSet = new TreeSet<>(numbers);
+   System.out.println(numbersSet.stream().collect(Collectors.toList()));
+
+Task 5 : ==> Skip the first 3 elements and return the rest.
+
+   List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+   System.out.println(names.stream().skip(3).collect(Collectors.toList()));
+
+=======================================================================================================================
+
+🔹 Numeric Streams & Reductions:-
+
+Task 1 : ==> Calculate the sum of a list of integers using reduce.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().reduce(0, (x, y) -> x + y));
+
+
+Task 2 : ==> Find the maximum and minimum value in a list.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println("max is: " +numbers.stream().max(Integer::max).get() + ", min is: " +numbers.stream().min(Integer::min).get());
+
+
+Task 3 : ==> Calculate the average of a list of doubles.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().mapToInt(x -> x).average().getAsDouble() );
+
+Task 4 : ==> Multiply all integers in a list together using reduce.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().reduce(1, (x, y) -> x * y) );
+
+Task 5 : ==> Count how many numbers are positive in a list.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().filter(x -> x % 2 == 0).count());
+
+=======================================================================================================================
+
+🔹 Collectors & Grouping:-
+
+Task 1 : ==> Group a list of students by their department.
+
+   System.out.println(students.stream().collect(Collectors.groupingBy(s -> s.department ,Collectors.mapping(s -> s.getName() + " grad is: " + s.getGrade(),Collectors.toList()))));
+
+Task 2 : ==> Partition a list of numbers into even and odd using partitioningBy.
+
+   List<Integer> numbers = Arrays.asList(10, 5, 3, 7, 2, 10, 5, 8, 9, 0, -3, 4);
+   System.out.println(numbers.stream().collect(Collectors.partitioningBy(x -> x % 2 == 0)));
+
+
+Task 3 : ==> Create a comma-separated string from a list of strings.
+
+   List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+   System.out.println(names.stream().filter(Objects::nonNull).filter(n -> !n.isEmpty()).collect(Collectors.joining(" - ")));
+
+
+Task 4 : ==> Group employees by age and count how many per age.
+
+  System.out.println(employees.stream().collect(Collectors.groupingBy(e ->e.age, Collectors.mapping(e ->e.name, Collectors.toList()))));
+
+
+Task 5 : ==> Find the average salary per department in a list of employees.
+
+  System.out.println(employees.stream().collect(Collectors.groupingBy(Employee::getDepartment ,Collectors.averagingDouble(Employee::getSalary))));
+
+=======================================================================================================================
+
+🔹 Optional, Map, FlatMap:-
+
+
+Task 1 : ==> Flatten a list of lists into a single list. ===========> (false)
+
+
+
+Task 2 : ==> Extract all unique characters from a list of words. ===========> (false)
+
+
+
+
+
+Task 3 : ==> Filter a list of Optionals and collect non-empty values. ===========> (false)
+
+
+
+
+Task 4 : ==> Map a list of strings to their lengths. ===========> (false)
+
+
+
+
+Task 5 : ==> Return a list of uppercased words that start with “A”.
+
+  List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+  System.out.println(names.stream().filter(Objects::nonNull).filter(n -> n.startsWith("A")).map(String::toUpperCase).collect(Collectors.toList()));
+
+
+=======================================================================================================================
+
+🔹 Advanced Operations :- 
+
+
+Task 1 : ==> Sort a list of employees by salary then by name.
+
+  employees.stream().sorted(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName)).forEach(s -> System.out.println(s.getName() + " " + s.getSalary()));
+
+Task 2 : ==> Find the second highest number in a list.
+
+      List<Integer> numbers = Arrays.asList(11, 55, 3, 7, 2, 11, 5, 8, 9, 0, -3, 4);
+      System.out.println(numbers.stream().skip(1).sorted(Comparator.reverseOrder()).skip(1).findFirst().get());
+
+Task 3 : ==> Find duplicate elements in a list of integers.
+
+     List<Integer> numbers = Arrays.asList(11, 55, 55, 3, 7, 2, 11, 5, 8, 9, 0, -3, 4);
+     System.out.println(numbers.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting())).entrySet().
+     stream().filter(e -> e.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList()));
+
+Task 4 : ==> Remove null or empty strings from a list using stream.
+
+   List<String> names = Arrays.asList("Ali", "Mona", "Ahmed", "Sara", "Amr", "Laila", "Kareem", "Nada", "Nour", "Samy", "", null);
+   System.out.println(names.stream().filter(Objects::nonNull).filter(n -> !n.isEmpty()).collect(Collectors.toList()));
+
+Task 5 : ==> Partition students into pass/fail groups based on grade. ===========> (false)

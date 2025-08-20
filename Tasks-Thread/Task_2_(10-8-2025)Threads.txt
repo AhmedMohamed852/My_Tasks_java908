@@ -1,0 +1,50 @@
+📄 Task 1: Compare and write the differences between List and Vector in Java:-
+
+Thread safety :
+vector ==> امن للاستخدام مع اكثر من وظيفه (Treads)
+List ==>  غير امن ولا يمكن استخدامه مع اكثر من وظيفه (no Threads)
+
+Synchronization :
+vector ==> يدعم التزامن لذالك هو امن للاستخدام  المتعدد
+
+List ==> لا يدعم التزامن وغير امن للاستخدام المتعدد
+
+Performance :
+vector ==> ابطاء بسبب التزامن
+List ==> سريع قليلا لانه لا يدعم التزامن
+ ________________________________________________________________________________________________________________________________________
+ 📄 Task 2: 📄 Task: Compare and write the differences between HashSet and LinkedHashSet.
+Order of elements :  
+HashSet ==> لا يتضمن ترتيب معين
+LinkedHashSet ==> يحتفظ بترتيب الادخال
+
+Performance :
+HashSet ==> اسرع بسبب عدم ترتيب العناصر
+LinkedHashSet ==> نفس السرعه تقريبا لاكن ابطا قليلا بسبب الربط بين العناصر
+
+Use cases :
+HashSet ==> اسرع لو مش محتاج الترتيب 
+LinkedHashSet ==> لو محتاج ترتيب العناصر
+________________________________________________________________________________________________________________________________________
+
+📄 Task: Compare and write the differences between String, StringBuilder, and StringBuffer:-
+Mutability :
+ String ==>غير قابل للتغيير ف القيم 
+ StringBuilder & StringBuffer  ==>
+  قابل لتعديل القيم بدون انشاء متغير جديد 
+
+Thread safety :
+
+ String ==> its Thread safety 
+ StringBuilder ==> its Not Thread safety becous Not Synchronized 
+ StringBuffer  ==> Thread safety becous Synchronized
+
+Performance : 
+
+ String ==> ابطاء بسبب الحاجه لانشاء نسخ جديده عند التعديل
+
+StringBuilder ==>  اسرع لانه غير متزامن (Not Synchronized)
+
+StringBuffer  ==> ابطاء قليل لاكنه امن في تعدد الوظاف (Multi Thread)
+________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________
