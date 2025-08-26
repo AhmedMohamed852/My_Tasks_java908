@@ -85,6 +85,7 @@
 
     <div class="result">
         Result: <strong><%= concatIdAndName(id, name) %></strong>
+        
     </div>
 </div>
 
