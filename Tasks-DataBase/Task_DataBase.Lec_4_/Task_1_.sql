@@ -1,0 +1,11 @@
+CREATE  TABLE EMP_TEST (NAME VARCHAR(100));
+INSERT INTO EMP_TEST (NAME) VALUES ('           Ahmed            ')
+
+SELECT TRIM(NAME) FROM EMP_TEST;
+SELECT LTRIM(NAME) FROM EMP_TEST;
+SELECT RTRIM(NAME) FROM EMP_TEST;
+
+INSERT INTO EMP_TEST (NAME) VALUES ('e.g.**##Ahmede.g.**##')
+
+SELECT LTRIM(RTRIM('e.g.**##Ahmede.g.**##', 'e.g*#') , 'e.g*#') trim FROM dual;
+
