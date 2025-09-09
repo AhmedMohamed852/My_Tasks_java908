@@ -1,1 +1,2 @@
-This Project From : Basics To Servlet.jsp ;
+This project is a starting application from the basics to Servlet.JSP.
+(form - Model - controller - View - jsp - servlet - html )
