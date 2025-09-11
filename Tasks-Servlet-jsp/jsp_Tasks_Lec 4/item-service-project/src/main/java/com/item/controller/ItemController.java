@@ -54,7 +54,8 @@ public class ItemController extends HttpServlet {
 	//_____________________________________________________________________________________
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		HttpSession session = request.getSession(false);
 		
@@ -84,7 +85,8 @@ public class ItemController extends HttpServlet {
 				
 				session.setAttribute("sessionUserIsLogin", user);
 			}else { 
-		        response.sendRedirect(request.getContextPath() + "/login.jsp");
+		        // مفيش كوكي → رجع للـ login
+		        response.sendRedirect(request.getContextPath() + "/login.jsp"); 
 		        return; 
 		    }
 			
@@ -138,7 +140,7 @@ private void logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession(false);
 		
 		Cookie userCookie  = new Cookie("cookieUserIsLogin" , "");
-		userCookie.setMaxAge(0);
+		userCookie.setMaxAge(0);   // يعني امسح الكوكي فورًا
 		userCookie.setPath("/"); 
 		response.addCookie(userCookie);
 		
@@ -162,6 +164,7 @@ private void logout(HttpServletRequest request, HttpServletResponse response) {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
@@ -183,13 +186,16 @@ private void logout(HttpServletRequest request, HttpServletResponse response) {
 
 	private void editItem(HttpServletRequest request, HttpServletResponse response) {
 
-		
-		Long id = Long.parseLong(request.getParameter("id"));
-		String nameItem =request.getParameter("name");
-		double price = Double.parseDouble(request.getParameter("price"));
-		int totalNumber =Integer.parseInt(request.getParameter("total_number"));
-		
-		Item item = new Item(id ,nameItem , price , totalNumber);
+		/*
+		 * Long id = Long.parseLong(request.getParameter("id")); String nameItem
+		 * =request.getParameter("name"); double price =
+		 * Double.parseDouble(request.getParameter("price")); int totalNumber
+		 * =Integer.parseInt(request.getParameter("total_number"));
+		 * 
+		 * Item item = new Item(id ,nameItem , price , totalNumber);
+		 */
+
+		Item item = itemDetails(request ,response);
 		
 		boolean isUpdated = itemservice.editItem(item);
 		
@@ -228,14 +234,16 @@ private void logout(HttpServletRequest request, HttpServletResponse response) {
 		    }
 		 
 		
-		
-		
-		String nameItem =request.getParameter("name");
-		double price = Double.parseDouble(request.getParameter("price"));
-		int totalNumber =Integer.parseInt(request.getParameter("totalNumber"));
-		
-		Item item = new Item(nameItem , price , totalNumber);
-		
+			/*
+			 * String nameItem =request.getParameter("name"); double price =
+			 * Double.parseDouble(request.getParameter("price")); int totalNumber
+			 * =Integer.parseInt(request.getParameter("totalNumber"));
+			 * 
+			 * Item item = new Item(nameItem , price , totalNumber);
+			 */
+		 
+		 Item item = itemDetails(request ,response);
+
 		boolean succsessAdItem = itemservice.addItem(item);
 		
 		getItems(request ,response);
@@ -280,6 +288,31 @@ private void logout(HttpServletRequest request, HttpServletResponse response) {
 		
 	}
 	
+	
+	//_____________________________________________________________________________________
 
+	
+	
+	private Item itemDetails(HttpServletRequest request ,HttpServletResponse response)
+	{
+		Long id ;
+		
+		if(Long.parseLong((request.getParameter("id"))) == 0)
+		{
+			 id = (long) 0;
+		}else {
+			 id = Long.parseLong(request.getParameter("id"));
+		}
+
+		String nameItem =request.getParameter("name");
+		double price = Double.parseDouble(request.getParameter("price"));
+		int totalNumber =Integer.parseInt(request.getParameter("totalNumber"));
+		
+		Item item = new Item(id ,nameItem , price , totalNumber);
+
+		return item;
+	}
 }
 //_____________________________________________________________________________________
+
+

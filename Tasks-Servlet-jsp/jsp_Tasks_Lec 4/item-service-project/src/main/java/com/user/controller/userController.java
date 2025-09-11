@@ -89,12 +89,12 @@ public class userController extends HttpServlet {
     		 try {
 				response.sendRedirect(request.getContextPath() + "/login.jsp");
 			} catch (IOException e) {
-				
+				// TODO Auto-generated catch block
 				System.out.println("---> " + e.getMessage());
 			}
     	 }else {
     	        try {
-    	            response.getWriter().write("Failed to delete account");
+    	            response.getWriter().write("❌ Failed to delete account!");
     	        } catch (IOException e) {
     				System.out.println("---> " + e.getMessage());
     	        }
@@ -127,7 +127,7 @@ public class userController extends HttpServlet {
 
     
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-
+        // لو مفيش بيانات لسه → ارجع login.jsp
         if (request.getParameter("name") == null) 
         {
             try 
@@ -161,8 +161,8 @@ public class userController extends HttpServlet {
     	   
     	   Cookie userCookie = new Cookie("cookieUserIsLogin" , user.getUsername() );
     	   userCookie.setMaxAge(120);
-    	   userCookie.setHttpOnly(true);
-    	   userCookie.setSecure(false);
+    	   userCookie.setHttpOnly(true);   // حماية من JS
+    	   userCookie.setSecure(false);    // true لو شغال HTTPS
     	   userCookie.setPath("/");  
     	   response.addCookie(userCookie);
     	   
@@ -196,10 +196,12 @@ public class userController extends HttpServlet {
 
         boolean result = userserviceimpl.signup(user);
 
+        // أرسل حالة التسجيل للـ login.jsp
         request.setAttribute("actionsource", "signup");
         request.setAttribute("signupresult", result);
 
         try {
+            // إحالة المستخدم إلى login.jsp بعد Sign Up
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             System.out.println("---> " + e.getMessage());

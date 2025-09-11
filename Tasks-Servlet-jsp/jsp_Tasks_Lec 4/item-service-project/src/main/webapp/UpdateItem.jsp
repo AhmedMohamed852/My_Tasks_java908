@@ -107,7 +107,7 @@
         <input type="text" name="price" value="<%= item.getPrice() %>" required> 
 
         <label>Total Number:</label> 
-        <input type="text" name="total_number" value="<%= item.getTotalNumber() %>" required> 
+        <input type="text" name="totalNumber" value="<%= item.getTotalNumber() %>" required> 
 
         <input type="submit" value="Update Item"/> 
     </form> 

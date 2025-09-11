@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     
     public boolean login(UserAcount user) {
     	if (!(isUserExists(user.getUsername() ,user.getUserpass()) )) {
-    		return false;
+    		return false; // ❌ المستخدم موجود بالفعل
     	}
     	
     	return true;
@@ -68,12 +68,13 @@ public class UserServiceImpl implements UserService {
 
 
     //____________________________________________________________________________
+    // 🔎 تشيك هل اليوزر موجود بالـ username
 
 
     @Override
     public boolean signup(UserAcount user) {
         if (isUserExists(user.getUsername() , null)) {
-            return false;
+            return false; // ❌ المستخدم موجود بالفعل
         }
         //____________________________________________________________________________
 

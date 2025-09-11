@@ -44,6 +44,7 @@ public class ItemServiceImpl implements ItemService{
 		
 			catch (SQLException e) 
 			{
+				// TODO Auto-generated catch block
 				System.out.println("---> " + e.getMessage());
 			}
 finally {
@@ -53,6 +54,7 @@ finally {
 				if(connection != null) connection.close();
 				if(statement != null) statement.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				System.out.println("----> " + e.getMessage());
 			}
 
@@ -83,6 +85,7 @@ finally {
 		
 catch (SQLException e) 
 		{
+			// TODO Auto-generated catch block
 			System.out.println("---> " + e.getMessage());
 		}
 	
@@ -93,6 +96,7 @@ finally {
 					if(connection != null) connection.close();
 					if(statement != null) statement.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					System.out.println("----> " + e.getMessage());
 				}
 
@@ -139,6 +143,7 @@ finally {
 					if(connection != null) connection.close();
 					if(statement != null) statement.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					System.out.println("----> " + e.getMessage());
 				}
 
@@ -179,6 +184,7 @@ finally {
 		
 			catch (SQLException e) 
 			{
+				// TODO Auto-generated catch block
 				System.out.println("---> " + e.getMessage());
 			}
 		
@@ -189,6 +195,7 @@ finally {
 					if(connection != null) connection.close();
 					if(statement != null) statement.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					System.out.println("----> " + e.getMessage());
 				}
 			
