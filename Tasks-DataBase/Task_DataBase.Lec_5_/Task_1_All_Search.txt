@@ -1,0 +1,27 @@
+الفرق بين where & hVING : 
+
+WHERE :  بتشتغل ع مستوى ال  ROW (ROW BY ROW) 
+ كمان ترتيت ال WHERE   قبل ال GROUB BY  من حيث وقت التنفيذ 
+
+ علشان كده ما تشتغلش مع SUM(SALARY) > 0000 
+ منين بيشتغل (ROW BY ROW )  ومنين بقوله جمعلى ال SALARY  الخاص بجروب معين ولو موافق للكونديشن هات RESULT 
+  ف بيحصل  ERRORE ;
+
+ لاكن  ال  HAVING  بيشتغل عادي    
+ اولا ترتيب ال  HAVING  بييجي بعد ال GROUB BY  علشان يشتغل
+ فيقدر ينفذ الكونديشن زي ما انا عايز بناء ع الجروبات الي خلاص اتجمعت  بيقدر يحسب ال SUM(SALARY) AND RETURN VALUE ;
+
+ROWNUM  بيشتغل مع ال  WHERE  
+ علشان ال ROWNUM بيشتغل زي ال WHERE (ROW BY ROW ) 
+ ==> بيمسك اول ROW  لو اتنفذ يديله رقم  1 ثم 2 ووهكذا 
+ وده بيفسر ليه  ال  ROWNUM  ليه مش شغاله مع  WHERE ROWNUM = 2  
+ هو هنا واحد لسه ما تنفذشي علشان ينفذ 2
+ ود ياكد انهم شغالين  (ROW BY ROW )
+ ____________________________________________________________________________________________________
+
+the Defference between (UNIQUE+NOT NULL  & PRIMARY KEY)
+
+PRIMARY KEY : ==>  can have only one primary key IN TABLE & Use with Primary Key only (It is better);
+UNIQUE + NOT NULL : ==> Used several times  
+
+____________________________________________________________________________________________________

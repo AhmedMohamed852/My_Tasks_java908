@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Add Item</title>  
+ 
+    <style> 
+        /* General Styling */ 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #f9fbfd, #eef3f8); 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 480px; 
+            margin: 70px auto; 
+            padding: 30px; 
+            background: #ffffff; 
+            border-radius: 15px; 
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); 
+            transition: transform 0.2s ease-in-out; 
+        } 
+ 
+        .container:hover { 
+            transform: translateY(-4px); 
+        } 
+ 
+        h1 { 
+            text-align: center; 
+            color: #2c3e50; 
+            margin-bottom: 25px; 
+            font-size: 24px; 
+        } 
+ 
+        label { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: 8px; 
+            color: #555; 
+        } 
+ 
+        input[type="text"], 
+        input[type="number"] { 
+            width: 100%; 
+            padding: 10px 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #dcdfe6; 
+            border-radius: 10px; 
+            font-size: 15px; 
+            transition: border 0.3s ease; 
+        } 
+ 
+        input:focus { 
+            border-color: #7cb8f7; 
+            outline: none; 
+            box-shadow: 0 0 5px rgba(124, 184, 247, 0.5); 
+        } 
+ 
+        button { 
+            display: block; 
+            width: 100%; 
+            padding: 12px; 
+            background: linear-gradient(135deg, #74b9ff, #0984e3); 
+            border: none; 
+            border-radius: 10px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            color: white; 
+            cursor: pointer; 
+            transition: background 0.3s ease, transform 0.2s ease; 
+        } 
+ 
+        button:hover { 
+            background: linear-gradient(135deg, #0984e3, #74b9ff); 
+            transform: scale(1.02); 
+        } 
+ 
+        .back-link { 
+            display: block; 
+            text-align: center; 
+            margin-top: 18px; 
+        } 
+ 
+        .back-link a { 
+            color: #0984e3; 
+            text-decoration: none; 
+            font-weight: 500; 
+        } 
+ 
+        .back-link a:hover { 
+            text-decoration: underline; 
+        } 
+    </style> 
+</head>  
+<body>  
+ 
+<div class="container"> 
+    <h1>Add New Item</h1> 
+ 
+    <form action="/item-service-project/ItemController_java" method="get">  
+        <input type="hidden" name="action" value="addItem">  
+ 
+        <label for="name">Name:</label> 
+        <input type="text" id="name" name="name" required/>  
+ 
+        <label for="price">Price:</label> 
+        <input type="number" id="price" name="price" step="0.01" required/>  
+ 
+        <label for="totalNumber">Total Number:</label> 
+        <input type="number" id="totalNumber" name="totalNumber" required/>  
+ 
+        <button type="submit">➕ Add Item</button>  
+    </form> 
+ 
+    <div class="back-link"> 
+        <a href="/item-service-project/ItemController_java?action=getItems">⬅ Back to Items</a> 
+    </div> 
+</div> 
+ 
+</body>  
+</html>
