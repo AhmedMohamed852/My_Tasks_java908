@@ -1,0 +1,8 @@
+Why does the singleton close the connection but the prototype does not?
+
+-> singleton : He is responsible for opening and closing the connection 
+-> in the end he depends on himself ;
+
+-> prototype : He is responsible for opening connection only 
+-> and you reponsible for closing , and not depends for himself;
+ ==> objectName.closeConnection();
