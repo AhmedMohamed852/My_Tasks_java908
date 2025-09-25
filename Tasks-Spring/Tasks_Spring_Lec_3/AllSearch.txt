@@ -1,0 +1,23 @@
+
+==> 1-How I Can Mang Sequence strategy :
+		@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "student_seq")
+		@SequenceGenerator
+		(
+		name = "student_seq",
+		sequenceName = "STUDENT_SQL",
+		allocationSize = 5				
+		)
+
+_____________________________________________________________________
+
+==> 2-(ٍ Sequence - Identety - Auto - Table )
+
+1. SEQUENCE : مناسب لقواعد البيانات اللي بتدعم sequences  -> Fast with big data  ممكن يكريت مجموعة Id ويخزنها ف الكاش ويستخدمهم , هيكون اسرع بكتير  ;
+2. IDENTITY : Slow with big data -> لو هنفذ 100 جملة insert in DB لازم يستنى Id_1 يتكريت بعد كده  Id_2  وهكذا.
+3. TABLE : بيدعم اي قاعدة بيانات استخده لو SQL مش بيدعم SEQUENCE , يعتبر زي ال IDENTITY  بطئ ويمكن ابطاء كمان 
+   لان كل مره بيستنى يعمل جملة UPDATE AND SELECT ; 
+
+4. AUTO : بيختار ال STRATEGY المناسب حسب نوع البيانات ( Oracle => SEQUENCE , MySQL_OR_SQL Server => IDENTITY ) وهكذا ; 
+
+_____________________________________________________________________
+
