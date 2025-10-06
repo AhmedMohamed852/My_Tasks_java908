@@ -1,0 +1,20 @@
+JOB_HISTORY 
+
+
+
+SELECT * FROM hr.JOB_HISTORY j 
+WHERE j.JOB_ID IN (SELECT j2.JOB_ID FROM hr.JOB_HISTORY j2	
+WHERE j2.JOB_ID IN('AD_ASST', 'FI_MGR', 'FI_ACCOUNT' ,'AC_MGR' ,'AC_ACCOUNT' , 'SA_MAN' ,'SA_REP' , 'PU_MAN'))
+AND 
+ j.DEPARTMENT_ID IN (SELECT d.DEPARTMENT_ID FROM hr.DEPARTMENTS d 
+WHERE d.DEPARTMENT_NAME IN('Administration'  ,'Marketing' ,'Purchasing' , 'Human' , 'Resources' ,'Shipping'));
+
+
+
+
+
+
+
+
+
+
