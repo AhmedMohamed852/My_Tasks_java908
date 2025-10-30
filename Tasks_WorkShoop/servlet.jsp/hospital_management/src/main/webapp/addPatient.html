@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add New Patient</title>
+
+<style>
+    /* 1. التنسيق العام للجسم */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8; /* خلفية فاتحة */
+        display: flex;
+        justify-content: center; /* توسيط أفقي */
+        align-items: flex-start; /* بدء من الأعلى */
+        min-height: 100vh;
+        margin: 0;
+        padding-top: 50px;
+    }
+
+    /* 2. تنسيق حاوية النموذج */
+    form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px; /* تحديد عرض النموذج */
+        display: flex;
+        flex-direction: column; /* ترتيب العناصر عمودياً */
+    }
+
+    /* 3. تنسيق العنوان */
+    h1 {
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 24px;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+    }
+
+    /* 4. تنسيق التسميات (Labels) */
+    label {
+        margin-bottom: 5px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* 5. تنسيق حقول الإدخال (Inputs) */
+    input[type="number"],
+    input[type="text"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="number"]:focus,
+    input[type="text"]:focus {
+        border-color: #007bff; /* تغيير لون الحدود عند التركيز */
+        outline: none;
+    }
+
+    /* 6. تنسيق زر الإرسال (Submit Button) */
+    input[type="submit"] {
+        background-color: #28a745; /* لون أخضر جذاب */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #218838; /* تعتيم اللون عند المرور عليه */
+    }
+</style>
+
+</head>
+<body>
+
+  
+
+    <form action="/hospital_management/HospitalController" method="post">   
+  			  <h1>✏ Add Patient</h1> 
+        <input type="hidden" name="action" value="addPatient">   
+
+        <label for="ID">Patient ID:</label>   
+        <input type="number" id="ID" name="ID" required>   
+
+        <label for="FN">First Name:</label>   
+        <input type="text" id="FN" name="FN" required>   
+
+        <label for="LN">Last Name:</label>   
+        <input type="text" id="LN" name="LN" required>   
+        
+        <label for="PH">Phone:</label>   
+        <input type="text" id="PH" name="PH" required>   
+            
+        <input type="submit" value="💾 Add Patient"/>   
+    </form>   
+</body>
+</html>
